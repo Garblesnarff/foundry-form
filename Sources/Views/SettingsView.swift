@@ -241,13 +241,13 @@ struct TermsView: View {
 
 // MARK: - Policy Section Helper
 
-struct PolicySection<Content: StringProtocol>: View {
+struct PolicySection: View {
     let title: String
-    let content: () -> Content
+    let content: String
 
-    init(title: String, @ViewBuilder content: @escaping () -> Content) {
+    init(title: String, content: () -> String) {
         self.title = title
-        self.content = content
+        self.content = content()
     }
 
     var body: some View {
@@ -255,7 +255,7 @@ struct PolicySection<Content: StringProtocol>: View {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.forgeAmber)
-            Text(content())
+            Text(content)
                 .font(.body)
                 .foregroundColor(.white)
                 .lineSpacing(4)
