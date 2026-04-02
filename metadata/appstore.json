@@ -1,0 +1,14 @@
+{
+  "app_name": "Form",
+  "subtitle": "Exercise Form Analyzer",
+  "description": "Form uses your Mac's camera and Apple Vision framework to analyze your exercise technique in real time. See your body pose overlaid on screen, receive instant feedback on alignment and range of motion, and review recorded sessions to track your improvement.\n\nDesigned for athletes, physical therapy patients, and anyone training at home who wants objective feedback on their movement quality without hiring a coach for every session.\n\nReal-Time Pose Detection\nForm detects and tracks your body joints at 30 frames per second using Apple's Vision framework. A clear skeletal overlay shows exactly how the system sees your posture, making it easy to identify asymmetries or compensations as they happen.\n\nInstant Coaching Feedback\nAs you perform exercises, Form evaluates key form metrics including joint angles, torso alignment, and movement symmetry. Visual and audio cues alert you when your form deviates from target ranges, so you can correct mid-rep rather than reinforcing bad habits.\n\nSession Recording and Review\nRecord your training sessions with the pose overlay baked in. Scrub through footage frame by frame to study your technique at critical points in each repetition. Compare sessions side by side to see measurable progress over time.\n\nExercise Library\nForm ships with detection profiles for common movements including squats, deadlifts, push-ups, lunges, and overhead presses. Each profile defines the joint angles and alignment criteria that constitute good form for that exercise.\n\nAll processing runs on-device using Apple Silicon. No video is uploaded, and no account is required. Your training data stays private on your Mac.",
+  "keywords": "exercise,form,pose,fitness,coaching,squat,training,vision,body,workout",
+  "primary_category": "Health & Fitness",
+  "secondary_category": "Sports",
+  "age_rating": "4+",
+  "copyright": "2026 Hanson Foundry",
+  "privacy_url": "https://hansonfoundry.com/privacy",
+  "support_url": "https://hansonfoundry.com/support",
+  "version": "1.0.0",
+  "bundle_id": "com.hansonfoundry.Form"
+}
