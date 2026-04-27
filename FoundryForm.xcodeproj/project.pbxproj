@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EB64518A56C1A0669E299C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B3DF0FA1AD6929C7CC0ED14D /* PrivacyInfo.xcprivacy */; };
 		04D69B45FE6D2C60BD8267F2 /* FormAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AECFA65E7D5DC248CF12BF /* FormAnalyzer.swift */; };
 		050F09A270AC03CFD2EEC38A /* FormAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F484AC26308F824F6E87C28 /* FormAnalyzerTests.swift */; };
 		0F81E95D9B6E1D10B91615B1 /* FoundryFormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5448A0DB1195B3B4C5B8179 /* FoundryFormApp.swift */; };
@@ -53,6 +54,7 @@
 		89B98A8A49FB5C1A5D712C7D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9A0B436E6443A906A2B4ECCF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		A2F88A371A275150D3643F0E /* FoundryFormTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FoundryFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3DF0FA1AD6929C7CC0ED14D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		B465F5657E3FFEB99D072AF1 /* PoseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseData.swift; sourceTree = "<group>"; };
 		B9E8F9ADB4DBF96D6923EC3C /* AngleCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleCalculator.swift; sourceTree = "<group>"; };
 		CC53151EA89EC95864804A16 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				14F2800C6FBA3FB61E5D2EDF /* Utilities */,
 				DEFAF4C61D8495DFC6C344D5 /* Views */,
 				D5448A0DB1195B3B4C5B8179 /* FoundryFormApp.swift */,
+				B3DF0FA1AD6929C7CC0ED14D /* PrivacyInfo.xcprivacy */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildConfigurationList = 480CD01F0400B4CEBEC81496 /* Build configuration list for PBXNativeTarget "FoundryForm" */;
 			buildPhases = (
 				9BAF2956FF47284D606D317C /* Sources */,
+				5CFEA367A1C3017A6A0B7734 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +238,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CFEA367A1C3017A6A0B7734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02EB64518A56C1A0669E299C /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25100B0C7EE437A5F716EA9E /* Sources */ = {
@@ -354,7 +369,7 @@
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.foundry.form;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hanson-foundry.form";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -444,7 +459,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.foundry.form;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hanson-foundry.form";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -40,3 +40,5 @@ Pods/
 *~
 .idea/
 .vscode/
+
+._build
