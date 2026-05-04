@@ -86,9 +86,7 @@ class PoseDetector: NSObject, ObservableObject {
                     self.captureSession.addOutput(self.videoOutput)
                 }
 
-                // Set video orientation
                 if let connection = self.videoOutput.connection(with: .video) {
-                    connection.videoOrientation = .portrait
                     if device.position == .front {
                         connection.isVideoMirrored = true
                     }
@@ -165,7 +163,7 @@ class PoseDetector: NSObject, ObservableObject {
                   point.confidence > 0.3 else {
                 return .zero
             }
-            // Vision provides coordinates with origin at bottom-left; flip Y for UIKit/SwiftUI.
+            // Vision provides coordinates with origin at bottom-left; flip Y for SwiftUI.
             return CGPoint(x: point.location.x, y: 1.0 - point.location.y)
         }
 

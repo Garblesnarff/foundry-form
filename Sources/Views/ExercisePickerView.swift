@@ -50,9 +50,8 @@ struct ExercisePickerView: View {
             .scrollContentBackground(.hidden)
             .background(Color.forgeBlack)
             .navigationTitle("Select Exercise")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
                         .foregroundColor(.forgeAmber)
                 }

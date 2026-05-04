@@ -39,10 +39,8 @@ struct SessionView: View {
                 }
             }
             .navigationTitle("Foundry Form")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .automatic) {
                     Button {
                         showExercisePicker = true
                     } label: {
@@ -54,7 +52,6 @@ struct SessionView: View {
             }
             .sheet(isPresented: $showExercisePicker) {
                 ExercisePickerView(selectedExercise: $selectedExercise)
-                    .presentationDetents([.medium])
             }
             .onAppear {
                 repCounter = RepCounterFactory.create(for: selectedExercise)

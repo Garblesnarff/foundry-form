@@ -101,7 +101,6 @@ struct StatsView: View {
             }
             .background(Color.forgeBlack)
             .navigationTitle("Statistics")
-            .navigationBarTitleDisplayMode(.inline)
         }
         .preferredColorScheme(.dark)
     }

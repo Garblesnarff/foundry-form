@@ -13,34 +13,7 @@ struct FoundryFormApp: App {
                 .environmentObject(poseDetector)
                 .environmentObject(formAnalyzer)
                 .preferredColorScheme(.dark)
-                .onAppear {
-                    configureAppearance()
-                }
         }
-    }
-
-    /// Configure UIKit global appearance to match the Foundry forge aesthetic.
-    private func configureAppearance() {
-        // Navigation bar
-        let navAppearance = UINavigationBarAppearance()
-        navAppearance.configureWithOpaqueBackground()
-        navAppearance.backgroundColor = UIColor(Color.forgeBlack)
-        navAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().standardAppearance = navAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
-        UINavigationBar.appearance().compactAppearance = navAppearance
-
-        // Tab bar
-        let tabAppearance = UITabBarAppearance()
-        tabAppearance.configureWithOpaqueBackground()
-        tabAppearance.backgroundColor = UIColor(Color.forgeBlack)
-        tabAppearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.forgeAmber)
-        tabAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [
-            .foregroundColor: UIColor(Color.forgeAmber)
-        ]
-        UITabBar.appearance().standardAppearance = tabAppearance
-        UITabBar.appearance().scrollEdgeAppearance = tabAppearance
     }
 }
 

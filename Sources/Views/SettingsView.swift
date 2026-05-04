@@ -129,7 +129,7 @@ struct SettingsView: View {
             .scrollContentBackground(.hidden)
             .background(Color.forgeBlack)
             .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.inline)
+
             .confirmationDialog("Clear Cache?", isPresented: $showClearCacheConfirmation, titleVisibility: .visible) {
                 Button("Clear Cache", role: .destructive) {
                     // Clear temporary caches
@@ -193,7 +193,6 @@ struct PrivacyView: View {
         }
         .background(Color.forgeBlack)
         .navigationTitle("Privacy Policy")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -235,7 +234,6 @@ struct TermsView: View {
         }
         .background(Color.forgeBlack)
         .navigationTitle("Terms of Service")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

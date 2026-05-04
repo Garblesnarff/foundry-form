@@ -78,10 +78,9 @@ struct HistoryView: View {
             }
             .background(Color.forgeBlack)
             .navigationTitle("History")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if !filteredSessions.isEmpty {
-                    ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarItem(placement: .automatic) {
                         Button {
                             showDeleteAllConfirmation = true
                         } label: {
@@ -332,7 +331,6 @@ struct SessionDetailView: View {
             }
             .background(Color.forgeBlack)
             .navigationTitle("Session Details")
-            .navigationBarTitleDisplayMode(.inline)
         }
         .preferredColorScheme(.dark)
     }

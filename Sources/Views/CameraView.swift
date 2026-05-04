@@ -11,11 +11,9 @@ struct CameraView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Camera feed
                 CameraPreviewRepresentable(session: captureSession)
                     .ignoresSafeArea()
 
-                // Skeleton overlay
                 if let pose = poseData, pose.isValid {
                     SkeletonOverlay(poseData: pose, formScore: formScore)
                         .ignoresSafeArea()
@@ -26,33 +24,41 @@ struct CameraView: View {
     }
 }
 
-// MARK: - Camera Preview (UIViewRepresentable wrapping AVCaptureVideoPreviewLayer)
+// MARK: - Camera Preview (NSViewRepresentable wrapping AVCaptureVideoPreviewLayer)
 
-struct CameraPreviewRepresentable: UIViewRepresentable {
+struct CameraPreviewRepresentable: NSViewRepresentable {
     let session: AVCaptureSession
 
-    func makeUIView(context: Context) -> CameraPreviewUIView {
-        let view = CameraPreviewUIView()
+    func makeNSView(context: Context) -> CameraPreviewNSView {
+        let view = CameraPreviewNSView()
         view.previewLayer.session = session
         view.previewLayer.videoGravity = .resizeAspectFill
         return view
     }
 
-    func updateUIView(_ uiView: CameraPreviewUIView, context: Context) {
-        uiView.previewLayer.session = session
+    func updateNSView(_ nsView: CameraPreviewNSView, context: Context) {
+        nsView.previewLayer.session = session
     }
 }
 
-/// UIView subclass that hosts an AVCaptureVideoPreviewLayer and keeps it
-/// properly sized via `layoutSubviews`.
-class CameraPreviewUIView: UIView {
-    override class var layerClass: AnyClass {
-        AVCaptureVideoPreviewLayer.self
+class CameraPreviewNSView: NSView {
+    let previewLayer = AVCaptureVideoPreviewLayer()
+
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        wantsLayer = true
+        layer = previewLayer
     }
 
-    var previewLayer: AVCaptureVideoPreviewLayer {
-        // swiftlint:disable:next force_cast
-        layer as! AVCaptureVideoPreviewLayer
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        wantsLayer = true
+        layer = previewLayer
+    }
+
+    override func layout() {
+        super.layout()
+        previewLayer.frame = bounds
     }
 }
 
@@ -62,7 +68,6 @@ struct SkeletonOverlay: View {
     let poseData: PoseData
     let formScore: Float
 
-    /// Color based on current form score.
     private var skeletonColor: Color {
         Color.formScoreColor(for: formScore)
     }
@@ -72,14 +77,12 @@ struct SkeletonOverlay: View {
             Canvas { context, size in
                 let scale = size
 
-                // Draw skeleton connections
                 for (i, j) in PoseData.connections {
                     let landmarks = poseData.allLandmarks
                     guard i < landmarks.count, j < landmarks.count else { continue }
                     let p1 = landmarks[i]
                     let p2 = landmarks[j]
 
-                    // Skip joints that weren't detected (sitting at .zero)
                     guard p1 != .zero, p2 != .zero else { continue }
 
                     let start = CGPoint(x: p1.x * scale.width, y: p1.y * scale.height)
@@ -96,7 +99,6 @@ struct SkeletonOverlay: View {
                     )
                 }
 
-                // Draw joint circles
                 let radius: CGFloat = 6
                 for landmark in poseData.allLandmarks where landmark != .zero {
                     let position = CGPoint(
@@ -131,15 +133,15 @@ struct CameraPermissionView: View {
                 .font(.headline)
                 .foregroundColor(.white)
 
-            Text("Foundry Form needs camera access to analyze your exercise form. Please enable it in Settings.")
+            Text("Foundry Form needs camera access to analyze your exercise form. Please enable it in System Settings > Privacy & Security > Camera.")
                 .font(.subheadline)
                 .foregroundColor(.forgeMediumGray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
 
-            Button("Open Settings") {
-                if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
+            Button("Open System Settings") {
+                if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Camera") {
+                    NSWorkspace.shared.open(url)
                 }
             }
             .buttonStyle(ForgeButtonStyle())
