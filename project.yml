@@ -1,6 +1,6 @@
 name: FoundryForm
 options:
-  bundleIdPrefix: com.foundry
+  bundleIdPrefix: com.hanson-foundry
   deploymentTarget:
     iOS: "16.0"
   xcodeVersion: "15.0"
